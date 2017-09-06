@@ -12,8 +12,10 @@
 
 #include "push_swap.h"
 
-t_stack *ft_create_stack(t_stack *name, int stack_size)
+t_stack *ft_create_stack(int stack_size)
 {
+	t_stack *name;
+
 	if(!(name = (t_stack*)malloc(sizeof(t_stack))))
 		exit(0);
 	if(!(name->stack = (int*)malloc(sizeof(int) * (stack_size))))

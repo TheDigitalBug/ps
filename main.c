@@ -41,18 +41,14 @@ int	main(int argc, char **argv)
 	t_stack *a;
 	t_stack *b;
 
-
-	a = NULL;
-	b = NULL;
 	if (argc == 1)
 		return((int)write(1, "usage: ./push_swap num1 num2 ... numN\n", 38));
-	a = ft_create_stack(a, STACK_SIZE);
-	b = ft_create_stack(b, STACK_SIZE);
+	a = ft_create_stack(STACK_SIZE);
+	b = ft_create_stack(STACK_SIZE);
 	
 	ft_put_to_stacks(a, argv, argc);
-	
-	
-	
-	ft_print_stacks(a, b, "init a b");
 
+	ft_print_stacks(a, b, "init a b");
+	ft_sa(a);
+	ft_print_stacks(a, b, "sa");
 }

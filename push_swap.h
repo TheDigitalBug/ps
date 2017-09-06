@@ -45,7 +45,7 @@ void			ft_rrb(t_stack *b);
 void			ft_rrr(t_stack *a, t_stack *b);
 void			ft_print_stack(t_stack *name, char *comment);
 void			ft_print_stacks(t_stack *a, t_stack *b, char *comment);
-t_stack			*ft_create_stack(t_stack *name, int stack_size);
+t_stack			*ft_create_stack(int stack_size);
 
 
 
