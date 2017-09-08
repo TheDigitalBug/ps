@@ -25,6 +25,11 @@
 # define STACK_OVERFLAW 0
 # define STACK_SIZE 2048
 
+
+# define PR(expr) printf("%s\n", expr)
+# define WR(expr) write(1, expr "\n", 2)
+# define PRINTOPERATION 1
+
 typedef struct	s_stack
 {
 	int			*stack;
@@ -50,8 +55,6 @@ t_stack			*ft_create_stack(int stack_size);
 
 
 
-void			ft_quick_sort(int *arr, int num);
-void			ft_pivot(int *arr, int *pivot, char **argv, int arr_size);
 
 
 void	ft_put_to_stacks(t_stack *name,char **argv, int argc);
@@ -62,6 +65,12 @@ int         ft_is_sort(t_stack *name);
 int         ft_is_sort_reverse(t_stack *name);
 
 int	ft_pop(t_stack *name, int *tmp);
+
+
+
+void	ft_simple_sort(t_stack *a, t_stack *b);
+
+
 
 
 #endif

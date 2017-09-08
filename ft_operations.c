@@ -64,11 +64,6 @@ void	ft_print_stacks(t_stack *a, t_stack *b, char *comment)
 	printf("------------------\n");
 }
 
-
-
-
-
-
 void	ft_sa(t_stack *a)
 {
 	int tmp;
@@ -78,6 +73,7 @@ void	ft_sa(t_stack *a)
 		tmp = a->stack[a->index];
 		a->stack[a->index] = a->stack[a->index - 1];
 		a->stack[a->index - 1] = tmp;
+		(PRINTOPERATION) ? write(1, "sa\n", 3) : 0;
 	}
 }
 
@@ -90,6 +86,7 @@ void	ft_sb(t_stack *b)
 		tmp = b->stack[b->index];
 		b->stack[b->index] = b->stack[b->index - 1];
 		b->stack[b->index - 1] = tmp;
+		(PRINTOPERATION) ? write(1, "sb\n", 3) : 0;
 	}
 }
 
@@ -97,6 +94,7 @@ void	ft_ss(t_stack *a, t_stack *b)
 {
 	ft_sa(a);
 	ft_sb(b);
+	(PRINTOPERATION) ? write(1, "ss\n", 3) : 0;
 }
 
 //pa : push a - take the first element at the top of b and put it at the top of a.
@@ -107,6 +105,7 @@ void	ft_pa(t_stack *a, t_stack *b)
 	if (b->index >= 0 && a->index < STACK_SIZE + 1)
 	{
 		a->stack[++(a->index)] = b->stack[(b->index)--];
+		(PRINTOPERATION) ? write(1, "pa\n", 3) : 0;
 	}
 }
 
@@ -115,6 +114,7 @@ void	ft_pb(t_stack *a, t_stack *b)
 	if (a->index >= 0 && b->index < STACK_SIZE + 1)
 	{
 		b->stack[++(b->index)] = a->stack[(a->index)--];
+		(PRINTOPERATION) ? write(1, "pb\n", 3) : 0;
 	}
 }
 
@@ -136,6 +136,7 @@ void	ft_ra(t_stack *a)
 			i--;
 		}
 		a->stack[0] = tmp;
+		(PRINTOPERATION) ? write(1, "ra\n", 3) : 0;
 	}
 }
 
@@ -154,6 +155,7 @@ void	ft_rb(t_stack *b)
 			i--;
 		}
 		b->stack[0] = tmp;
+		(PRINTOPERATION) ? write(1, "rb\n", 3) : 0;
 	}
 }
 
@@ -163,6 +165,7 @@ void	ft_rr(t_stack *a, t_stack *b)
 {
 	ft_ra(a);
 	ft_rb(b);
+	(PRINTOPERATION) ? write(1, "rr\n", 3) : 0;
 }
 
 //rra : reverse rotate a - shift down all elements of stack a by 1.
@@ -183,6 +186,7 @@ void	ft_rra(t_stack *a)
 			i++;
 		}
 		a->stack[a->index] = tmp;
+		(PRINTOPERATION) ? write(1, "rra\n", 4) : 0;
 	}
 }
 
@@ -201,6 +205,7 @@ void	ft_rrb(t_stack *b)
 			i++;
 		}
 		b->stack[b->index] = tmp;
+		(PRINTOPERATION) ? write(1, "rrb\n", 4) : 0;
 	}
 }
 
@@ -208,8 +213,5 @@ void	ft_rrr(t_stack *a, t_stack *b)
 {
 	ft_rra(a);
 	ft_rrb(b);
+	(PRINTOPERATION) ? write(1, "rrr\n", 4) : 0;
 }
-
-
-
-

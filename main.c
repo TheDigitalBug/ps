@@ -49,6 +49,8 @@ int	main(int argc, char **argv)
 	ft_put_to_stacks(a, argv, argc);
 
 	ft_print_stacks(a, b, "init a b");
-	ft_sa(a);
-	ft_print_stacks(a, b, "sa");
+	
+	ft_simple_sort(a, b);
+
+	ft_print_stacks(a, b, "after sort");
 }

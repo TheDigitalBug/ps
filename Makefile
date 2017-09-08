@@ -6,7 +6,7 @@
 #    By: kkotliar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/22 10:15:44 by kkotliar          #+#    #+#              #
-#    Updated: 2017/09/06 13:22:51 by kkotliar         ###   ########.fr        #
+#    Updated: 2017/09/08 13:47:32 by kkotliar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
 
-OBJ = ft_buble_sort.o ft_check.o ft_operations.o ft_pivot.o ft_quic_sort.o main.o
+OBJ = ft_buble_sort.o ft_check.o ft_operations.o ft_pivot.o ft_quic_sort.o main.o ft_simple_sort.o
 
 
 HEADER = push_swap.h
