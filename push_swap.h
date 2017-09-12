@@ -57,6 +57,8 @@ t_stack			*ft_create_stack(int stack_size);
 
 
 
+
+
 void	ft_put_to_stacks(t_stack *name,char **argv, int argc);
 
 
@@ -70,6 +72,9 @@ int	ft_pop(t_stack *name, int *tmp);
 
 void	ft_simple_sort(t_stack *a, t_stack *b);
 void	ft_simple_sort2(t_stack *a, t_stack *b);
+
+
+void quicksort(int *arr, int len);
 
 
 

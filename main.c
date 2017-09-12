@@ -52,7 +52,9 @@ int	main(int argc, char **argv)
 
 	ft_print_stacks(a, b, "init a b");
 	
-	ft_simple_sort2(a, b);
+//	ft_simple_sort2(a, b);
+//	printf("%d %d\n", a->size, a->index);
+	quicksort(a->stack, a->index + 1);
 	
 	ft_print_stacks(a, b, "after sort");
 
