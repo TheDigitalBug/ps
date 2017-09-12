@@ -69,6 +69,7 @@ int	ft_pop(t_stack *name, int *tmp);
 
 
 void	ft_simple_sort(t_stack *a, t_stack *b);
+void	ft_simple_sort2(t_stack *a, t_stack *b);
 
 
 

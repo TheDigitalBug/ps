@@ -12,6 +12,8 @@
 
 #include "push_swap.h"
 
+int operation_counter = 0;
+
 /*
 ** PUT income array (1,2,3,4) to stack:
 ** |1|
@@ -50,7 +52,8 @@ int	main(int argc, char **argv)
 
 	ft_print_stacks(a, b, "init a b");
 	
-	ft_simple_sort(a, b);
-
+	ft_simple_sort2(a, b);
+	
 	ft_print_stacks(a, b, "after sort");
+
 }

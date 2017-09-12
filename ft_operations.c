@@ -28,6 +28,7 @@ t_stack *ft_create_stack(int stack_size)
 void	ft_print_stacks(t_stack *a, t_stack *b, char *comment)
 {
 	int i;
+	extern int operation_counter;
 	
 	printf("%s\n", comment);
 	if (a->index > b->index)
@@ -61,12 +62,13 @@ void	ft_print_stacks(t_stack *a, t_stack *b, char *comment)
 	}
 	printf("%5s %5s", "- ", "-\n");
 	printf("%5s %5s", "a ", "b\n");
-	printf("------------------\n");
+	printf("-----nb of operations = %d -----------\n", operation_counter);
 }
 
 void	ft_sa(t_stack *a)
 {
 	int tmp;
+	extern int operation_counter;
 
 	if (a->index >= 1)
 	{
@@ -74,12 +76,14 @@ void	ft_sa(t_stack *a)
 		a->stack[a->index] = a->stack[a->index - 1];
 		a->stack[a->index - 1] = tmp;
 		(PRINTOPERATION) ? write(1, "sa\n", 3) : 0;
+		operation_counter++;
 	}
 }
 
 void	ft_sb(t_stack *b)
 {
 	int tmp;
+	extern int operation_counter;
 	
 	if (b->index >= 1)
 	{
@@ -87,14 +91,18 @@ void	ft_sb(t_stack *b)
 		b->stack[b->index] = b->stack[b->index - 1];
 		b->stack[b->index - 1] = tmp;
 		(PRINTOPERATION) ? write(1, "sb\n", 3) : 0;
+		operation_counter++;
 	}
 }
 
 void	ft_ss(t_stack *a, t_stack *b)
 {
+	extern int operation_counter;
+	
 	ft_sa(a);
 	ft_sb(b);
 	(PRINTOPERATION) ? write(1, "ss\n", 3) : 0;
+	operation_counter++;
 }
 
 //pa : push a - take the first element at the top of b and put it at the top of a.
@@ -102,19 +110,25 @@ void	ft_ss(t_stack *a, t_stack *b)
 
 void	ft_pa(t_stack *a, t_stack *b)
 {
+	extern int operation_counter;
+	
 	if (b->index >= 0 && a->index < STACK_SIZE + 1)
 	{
 		a->stack[++(a->index)] = b->stack[(b->index)--];
 		(PRINTOPERATION) ? write(1, "pa\n", 3) : 0;
+		operation_counter++;
 	}
 }
 
 void	ft_pb(t_stack *a, t_stack *b)
 {
+	extern int operation_counter;
+	
 	if (a->index >= 0 && b->index < STACK_SIZE + 1)
 	{
 		b->stack[++(b->index)] = a->stack[(a->index)--];
 		(PRINTOPERATION) ? write(1, "pb\n", 3) : 0;
+		operation_counter++;
 	}
 }
 
@@ -125,6 +139,7 @@ void	ft_ra(t_stack *a)
 {
 	int tmp;
 	int i;
+	extern int operation_counter;
 	
 	if (a->index >= 1)
 	{
@@ -137,6 +152,7 @@ void	ft_ra(t_stack *a)
 		}
 		a->stack[0] = tmp;
 		(PRINTOPERATION) ? write(1, "ra\n", 3) : 0;
+		operation_counter++;
 	}
 }
 
@@ -144,6 +160,7 @@ void	ft_rb(t_stack *b)
 {
 	int tmp;
 	int i;
+	extern int operation_counter;
 
 	if (b->index >= 1)
 	{
@@ -156,6 +173,7 @@ void	ft_rb(t_stack *b)
 		}
 		b->stack[0] = tmp;
 		(PRINTOPERATION) ? write(1, "rb\n", 3) : 0;
+		operation_counter++;
 	}
 }
 
@@ -163,9 +181,12 @@ void	ft_rb(t_stack *b)
 
 void	ft_rr(t_stack *a, t_stack *b)
 {
+	extern int operation_counter;
+	
 	ft_ra(a);
 	ft_rb(b);
 	(PRINTOPERATION) ? write(1, "rr\n", 3) : 0;
+	operation_counter++;
 }
 
 //rra : reverse rotate a - shift down all elements of stack a by 1.
@@ -175,6 +196,7 @@ void	ft_rra(t_stack *a)
 {
 	int tmp;
 	int i;
+	extern int operation_counter;
 	
 	if (a->index >= 1)
 	{
@@ -187,6 +209,7 @@ void	ft_rra(t_stack *a)
 		}
 		a->stack[a->index] = tmp;
 		(PRINTOPERATION) ? write(1, "rra\n", 4) : 0;
+		operation_counter++;
 	}
 }
 
@@ -194,6 +217,7 @@ void	ft_rrb(t_stack *b)
 {
 	int tmp;
 	int i;
+	extern int operation_counter;
 	
 	if (b->index >= 1)
 	{
@@ -206,12 +230,16 @@ void	ft_rrb(t_stack *b)
 		}
 		b->stack[b->index] = tmp;
 		(PRINTOPERATION) ? write(1, "rrb\n", 4) : 0;
+		operation_counter++;
 	}
 }
 
 void	ft_rrr(t_stack *a, t_stack *b)
 {
+	extern int operation_counter;
+	
 	ft_rra(a);
 	ft_rrb(b);
 	(PRINTOPERATION) ? write(1, "rrr\n", 4) : 0;
+	operation_counter++;
 }

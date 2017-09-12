@@ -3,7 +3,6 @@
 
 void	ft_simple_sort(t_stack *a, t_stack *b)
 {
-	int operation_counter = 0;
 	int i;
 
 	i = 0;
@@ -26,6 +25,37 @@ void	ft_simple_sort(t_stack *a, t_stack *b)
 	while(b->index != -1)
 	{
 		ft_pa(a, b);
-		operation_counter++;
+	}
+}
+
+void	ft_simple_sort2(t_stack *a, t_stack *b)
+{
+	int tmp;
+	int flag;
+
+	
+	while(a->index != -1)
+	{
+		flag = 1;
+		tmp = a->stack[a->index];
+		while(b->index != -1 && (b->stack[b->index] > tmp))
+		{
+			if (flag == 1)
+			{
+				ft_ra(a);
+				flag = 0;
+			}
+			ft_pa(a, b);
+		}
+		if (flag == 0)
+		{
+			ft_rra(a);
+			ft_pb(a, b);
+		}
+		ft_pb(a, b);
+	}
+	while(b->index != -1)
+	{
+		ft_pa(a, b);
 	}
 }
